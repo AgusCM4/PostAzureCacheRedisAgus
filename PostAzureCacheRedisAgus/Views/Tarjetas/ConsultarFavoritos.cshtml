@@ -1,0 +1,22 @@
+﻿@model List<Producto>
+
+@if (Model != null)
+{
+    @foreach (Producto p in Model)
+    {
+        @if (p != null)
+        {
+            <div class="card" style="width: 18rem;float:left;margin:15px">
+                <img class="card-img-top" src="@p.Imagen" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@p.Nombre</h5>
+                    <a asp-controller="Tarjetas" asp-action="EliminarFavoritos" asp-route-id="@p.IdProducto" class="btn btn-danger">Eliminar Favorito</a>
+                </div>
+            </div>
+        }
+    }
+}
+else
+{
+    <h1>No hay datos</h1>
+}

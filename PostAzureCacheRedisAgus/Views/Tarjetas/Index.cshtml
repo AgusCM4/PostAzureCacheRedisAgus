@@ -1,0 +1,16 @@
+﻿@model List<Producto>
+
+@{ 
+    ViewData["PRODUCTOS"] = Model;
+}
+
+@foreach (Producto p in Model)
+{
+    <div class="card" style="width: 18rem;float:left;margin:15px">
+        <img class="card-img-top" src="@p.Imagen" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@p.Nombre</h5>
+            <a asp-controller="Tarjetas" asp-action="AddFavorito" asp-route-id="@p.IdProducto" class="btn btn-secondary">Añadir a Favoritos</a>
+        </div>
+    </div>
+}
